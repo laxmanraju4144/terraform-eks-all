@@ -11,8 +11,8 @@ variable "bucket_name" {
 }
 
 variable "lock_table_name" {
-  description = "dev-eks-cluster-tf-lock"
+  description = "dev-eks-cluster-table-tf-lock"
   type        = string
-  default     = "dev-eks-cluster-tf-lock"
+  default     = "dev-eks-cluster-table-tf-lock"
   
 }
