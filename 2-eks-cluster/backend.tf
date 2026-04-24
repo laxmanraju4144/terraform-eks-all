@@ -1,9 +1,10 @@
-terraform {
-  backend "s3" {
-    bucket = "dev-eks-cluster-tf-state"
-    key = "laxman-eks-cluster/1-network/terraform.tfstate"
-    region = "us-east-2"
-    dynamodb_table = "dev-eks-cluster-table-tf-lock"
-    encrypt = true
+data "terraform_remote_state" "network" {
+  backend = "s3"
+
+  config = {
+    bucket         = "dev-eks-cluster-tf-state"   # S3 bucket where network state is stored
+    key            = "1-network/terraform.tfstate" # path inside the bucket
+    region         = "ap-south-1"                 # AWS region
+    dynamodb_table = "dev-eks-cluster-table-tf-lock"    # DynamoDB table for state locking
   }
 }
